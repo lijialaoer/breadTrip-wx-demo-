@@ -1,0 +1,69 @@
+/* page/user/user.wxss */
+@import "../../component/trip/trip.wxss";
+page{
+    background-color: #fbf7ed;
+}
+.header{
+    position: relative;
+}
+.header .mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:-5px;
+    left:0;
+    background-color: rgba(0,0,0,0.6);
+}
+.header .user{
+    width:100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:2;
+    color:#fff;
+    text-align: center;
+}
+.header .info{
+    margin-top:13.8%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.header .item_info{
+    width: 144rpx;
+    height:144rpx;
+    font-size:25rpx;
+    line-height: 1;
+}
+.user_img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color:#ccc;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+.count{
+    font-size: 40rpx;
+    line-height: 2.1;
+}
+.header .name{
+  margin-top:37%;
+  font-size:32rpx;
+}
+.trips{
+    padding:10px;
+}
+.trips_title{
+    margin-bottom: 10rpx;
+    font-size:30rpx;
+}
+.trips  .trip_num{
+    padding:0 16rpx;
+    margin-left:12rpx;
+    font-size:24rpx;
+    display: inline-block;
+    background-color:#e7e7e7;
+    border-radius: 50%;
+    color:#fff;
+}

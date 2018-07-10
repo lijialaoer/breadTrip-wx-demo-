@@ -1,0 +1,32 @@
+<!--page/user/user.wxml-->
+<import src="../../component/trip/trip.wxml"/>
+
+<view class="header">
+	<image style="width: {{ scrWidth }}px; height: {{ scrWidth - 150 }}px;" src='{{user_info.cover}}'></image>
+	<view class="mask"></view>
+	<view class="user">
+		<view class="info">
+			<view class="item_info">
+				<view class="count">{{user_info.followers_count}}</view>
+				<view>粉丝</view>
+			</view>
+			<view class="item_info">
+				<image mode='aspectFill' src='{{user_info.avatar_l}}' class='user_img'></image>
+			</view>
+			<view class="item_info">
+				<view class="count">{{user_info.followings_count}}</view>
+				<view>关注</view>
+			</view>
+		</view>
+		<view class="name">{{user_info.name}}</view>
+	</view>
+</view>
+<view class="trips">
+	<view class="trips_title">
+		<text>游记</text>
+		<text class="trip_num">{{trip.length}}</text>
+	</view>
+	<block wx:for="{{trip}}" wx:key="{{item.id}}">
+		<template is="m-trip" data="{{trip:item,model:2}}"></template>
+	</block>
+</view>

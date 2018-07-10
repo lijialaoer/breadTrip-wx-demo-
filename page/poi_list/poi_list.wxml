@@ -1,0 +1,29 @@
+<!--page/poi_list/poi_list.wxml-->
+<scroll-view scroll-y style='width:{{scrWidth}}px;height:{{scrHeight}}px' bindscrolltolower='loadMore' lower-threshold='900'>
+
+    <block wx:for='{{poiList}}' wx:key='{{item.id}}'>
+        <view class="m-trip-s" data-id='{{item.id}}' data-name='{{item.name}}' bindtap='viewTrip'>
+		<view class="mask"></view>
+		<image src="{{item.cover_image_w640}}" class="cover" mode="aspectFill"></image>
+		<view class="info">
+			<view class="title">{{item.name}}</view>
+			<view class="detail">
+				<text>{{item.date_added}}</text>
+				<text>{{item.day_count}}天</text>
+			</view>
+		</view>
+		<view class="stat">
+			<text>{{item.waypoints}}足迹</text>
+			<text>{{item.recommendations}}收藏</text>
+		</view>
+	</view>
+    </block>
+    
+	
+	 <view wx:if="{{ hasMore }}" >
+        <image src='../../img/loading.gif' style='width:100px;height:20px;margin-left:calc(50% - 50px);' ></image>
+     </view>
+  	<view wx:if="{{!hasMore && poiList.length===0}}" style='text-align:center;line-height:1.5;color:#b0b0b0;'>
+      没有更多
+	</view>
+</scroll-view>

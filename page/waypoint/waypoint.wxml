@@ -1,0 +1,39 @@
+<!--page/waypoint/waypoint.wxml-->
+
+<view class='container'>
+    <view class='waypoint' data-waypoint="{{itemInfo.id}}" bindtap='viewWaypoint' data-tripId="{{itemInfo.trip_id}}">
+        <view class='photo-ctn'>
+            <image style="width: 100%; height: {{itemInfo.photo_info.h * (scrWidth - 30) / itemInfo.photo_info.w }}px; background-color: #eeeeee;vertical-align: bottom;" src='{{itemInfo.photo_webtrip}}'></image>
+        </view>
+        <view class='article'>{{itemInfo.text}}</view>
+        <view class='wp-status'>
+            <view class='wp-time'>
+                <image class='icon-clock' src='../../img/time.png'></image>
+                <text>{{itemInfo.local_time}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="recommender">
+        <view class="title">{{itemInfo.recommendations}}人喜欢</view>
+        <view class="recommender_list">
+            <block wx:for="{{recommenders}}" wx:key="{{item.id}}">
+                <image class="avactor" data-id="{{item.id}}" src="{{item.avatar_l}}" bindtap='gotoUser'></image>
+            </block>
+        </view>
+    </view>
+    <view class="comment">
+        <view class="title">{{itemInfo.comments}}人评价</view>
+        <view class="comment_list">
+            <block wx:for="{{comments}}" wx:key="{{item.id}}">
+                <view class="list_item">
+                    <image class="avactor" src="{{item.user.avatar_l}}"></image>
+                    <view class="item_info">
+                        <text class="username">{{item.user.name}}: </text>
+                        <text class="comment_text">{{item.comment}}</text>
+                        <view class="comment_time">{{item.date_added}}</view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

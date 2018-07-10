@@ -1,0 +1,47 @@
+/* page/waypoint/waypoint.wxss */
+@import '../trip/trip.wxss';
+page{
+  background-color: #fbf7ed;
+}
+.container{
+  padding:15rpx;
+}
+.recommender .title,
+.comment .title{
+  margin:10px 0;
+  font-size:16px;
+  color:#a8915e;
+  font-weight: bold;
+}
+.recommender_list{
+  overflow: hidden;
+}
+.avactor{
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  border-radius: 100%;
+  background-color: #4abdcc;
+}
+.list_item{
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.list_item .avactor{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: #4abdcc;
+  float:left;
+}
+.item_info{
+  word-break: break-all;
+  overflow: hidden;
+}
+.item_info .username{
+  color:#4abdcc;
+}
+.comment_time{
+  color:#999;
+}

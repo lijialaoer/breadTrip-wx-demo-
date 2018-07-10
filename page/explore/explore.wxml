@@ -1,0 +1,15 @@
+<!--page/explore/explore.wxml-->
+<view>
+    <block wx:for='{{explore}}' wx:key='{{item.index}}'>
+        <view class='title'>{{item.title}}</view>
+          <view class='list'>
+              <block wx:for="{{item.data}}" wx:for-item="eitem" wx:key="{{index}}">
+                  <view  data-id='{{eitem.id}}' data-name='{{eitem.name}}' class="poi" bindtap='viewPoi' data-type='{{eitem.type}}'>
+                      <image src="{{eitem.cover_s}}"></image>
+                      <view class="mask"></view>
+                      <view class="name txthide">{{eitem.name}}</view>
+                  </view>
+              </block>
+          </view>
+    </block>
+</view>

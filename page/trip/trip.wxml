@@ -1,0 +1,36 @@
+<view class='container'>
+    <view class='trip-top'>
+       <image src="{{trip.user.avatar_l}}" class='trip-user' data-id="{{trip.user.id}}" bindtap='gotoUser'></image>
+       <view class='h1 txthide'>{{trip.name}}</view>
+       <view class='detail'>
+            <text>{{trip.first_day}}</text>
+            <text>{{trip.recommendations}}人喜欢</text>
+            <text>{{trip.view_count}}次浏览</text>
+       </view>
+    </view>
+    <view class='trip-wrap'>
+        <block wx:for="{{trip.days}}" wx:for-item="day" wx:key="day.day">
+            <view class='day'>
+                <view class='day-marker'>
+                    <text class='day-num'>{{day.date}} 第{{day.day}}天</text>
+                    <view class='wp-sep'></view>
+                    <block wx:for="{{day.waypoints}}" wx:for-item="wp" wx:for-index='i' wx:key="wp.id">
+                        <view class='waypoint' data-waypoint="{{wp.id}}" bindtap='viewWaypoint' data-tripId="{{wp.trip_id}}">
+                            <view class='photo-ctn'>
+                                <image style="width: 100%; height: {{ wp.photo_info.h * (scrWidth - 30) / wp.photo_info.w }}px; background-color: #eeeeee;vertical-align: bottom;" src='{{wp.photo_webtrip}}'></image>
+                            </view>
+                            <view class='article'>{{wp.text}}</view>
+                            <view class='wp-status'>
+                                <view class='wp-time'>
+                                    <image class='icon-clock' src='../../img/time.png'></image>
+                                    <text>{{wp.local_time}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class='wp-sep' wx:if="{{i < day.waypoints.length}}"></view>
+                    </block>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

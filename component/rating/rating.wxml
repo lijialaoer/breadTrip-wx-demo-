@@ -1,0 +1,10 @@
+<!--component/rating.wxml-->
+<template name="m-rating">
+	<view class="m-rating">
+		<block wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
+				<image wx:if="{{item <= count}}" src="{{'../../img/stars/star_' + size + '.png'}}"></image>
+				<image wx:if="{{item>count && item-1<count}}" src="{{'../../img/stars/semistar_' + size + '.png'}}"></image>
+				<image wx:if="{{item>count && !(item-1<count)}}" src="{{'../../img/stars/unstar_' + size + '.png'}}"></image>
+		</block>
+	</view>
+</template>

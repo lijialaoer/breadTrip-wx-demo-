@@ -1,0 +1,28 @@
+<!--component/trip.wxml-->
+
+<template name='m-trip'>
+  <view class='m-trip' bindtap='viewTrip' data-id="{{trip.id}}" data-name="{{trip.name}}" wx:if="{{model == 1 || model == 2}}">
+        <view class='masks'></view>
+         <image src='{{trip.cover_image_w640}}' mode='aspectFill' class='cover'></image>
+         <view class='info'>
+            <view class='h2'>{{trip.name}}</view>
+            <view class='detail'>
+                <view>
+                    <text>{{trip.date_added}}</text>
+                    <text>{{trip.day_count}}天</text>
+                    <text wx:if='{{model == 1}}'>{{trip.view_count}}次浏览</text>
+                </view>
+                <view class='place' wx:if='{{model == 1}}'>{{trip.popular_place_str}}</view>
+            </view>
+            <view class='user' wx:if='{{model == 1}}'>
+              <image src='{{trip.user.avatar_l}}' class='avactor'></image>
+              <view class='name'>by {{trip.user.name}}</view>
+            </view> 
+            <view class='bottom' wx:if="{{model == 2}}">
+                <text>{{trip.view_count}}次浏览 / </text>
+                <text>{{trip.liked_count}}喜欢 / </text>
+                <text>{{trip.total_comments_count}}评论</text>
+            </view>
+          </view>  
+    </view>
+</template>

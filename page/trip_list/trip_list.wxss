@@ -1,0 +1,98 @@
+/* page/trip_list/trip_list.wxss */
+page{
+  background-color:#fbf7ed;
+}
+.header{
+  background-color: #fff;
+  position: fixed;
+  top:0;
+  left:0;
+  box-sizing: border-box;
+  z-index: 100;
+ 
+}
+.nav{
+  display: inline-block;
+ margin:10rpx 20rpx;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.navdot{
+  display: inline-block;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding:0 30rpx;
+  color:#b0b0b0;
+}
+.selected{
+  color:#fff;
+  background-color:#4abdcc;
+  border-radius: 50rpx;
+}
+.list{
+  padding-top:70rpx;
+  box-sizing: border-box;
+}
+.m-poi{
+  margin:40rpx 20rpx;
+  position: relative;
+}
+.m-poi image{
+  width: 190rpx;
+  height: 190rpx;
+  border-radius: 8rpx;
+  float:left;
+  margin-right: 20rpx;
+  vertical-align: bottom;
+}
+.hotTips{
+  width: 57rpx;
+  height: 37rpx;
+  position: absolute;
+  top:20rpx;
+  left:-2rpx;
+  background-color: #ff631f;
+  border-radius: 8rpx;
+  font-size:20rpx;
+  color:#fff;
+  text-align: center;
+  line-height: 37rpx;
+}
+.info{
+  height:190rpx;
+  position: relative;
+}
+.info .title{
+  font-size: 34rpx;
+  line-height: 34rpx;
+  font-weight: bold;
+}
+.info .rating{
+  font-size:22rpx;
+  color:#999;
+  margin-top: 10rpx;
+}
+.m-rating,.recommender_num{
+  vertical-align: middle;
+  display: inline-block;
+}
+.m-rating image{
+  width: 26rpx;
+  height: 26rpx;
+  margin-top: 7rpx;
+}
+.info .desc{
+  margin-top: 5rpx;
+  font-size:24rpx;
+  line-height: 34rpx;
+  color:#5c5c5c;
+  overflow: hidden;
+}
+.info .detail{
+  position: absolute;
+  left:210rpx;
+  bottom:0;
+  font-size: 22rpx;
+  line-height: 1;
+  color:#999;
+}

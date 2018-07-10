@@ -1,0 +1,30 @@
+<!--page/trip_list/trip_list.wxml-->
+<import src="../../component/rating/rating.wxml" />
+
+<scroll-view style='width:{{srcWidth}}px;height:70rpx;' class='header'  scroll-x> 
+    <view class='nav'>
+         <block wx:for='{{navlist}}' wx:key="{{item.id}}" >
+        <view class='{{poiIndex == item.id ? "navdot selected" : "navdot"}}' data-type='{{item.value}}' bindtap='changeNavdot' data-id='{{item.id}}'>{{item.name}} </view>
+      </block>
+    </view>    
+</scroll-view>
+<scroll-view class='list' style='width:{{srcWidth}}px;height:{{srcHeight - 70}}px' scroll-y lower-threshold='900' bindscrolltolower='loadMore' >
+    <block wx:for='{{tripList}}' wx:key='{{item.id}}'>
+      <view class='m-poi' >
+          <image src="{{item.cover_s}}"></image>
+          <view class="hotTips">推荐</view>
+          <view class="info">
+              <view class="title">{{item.name}}</view>
+              <view class="rating">
+                  <template is="m-rating" data="{{count:item.rating,size:'m'}}"></template>
+                  <view class="recommender_num">{{item.rating_users}}人评论</view>
+              </view>
+              <view class="desc tethidenum">{{item.recommended_reason ? item.recommended_reason : ( item.tips.length>0 ? item.tips[0].content : item.description)}}</view>
+              <view class="detail">{{item.visited_count}}人浏览</view>
+          </view>
+      </view>
+    </block>
+     <view wx:if="{{ hasMore }}" class="loading">
+        <image src='../../img/loading.gif' style='width:100px;height:20px;margin-left:calc(50% - 50px);' ></image>
+     </view>
+</scroll-view>

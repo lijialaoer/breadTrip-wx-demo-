@@ -1,0 +1,42 @@
+{
+  "pages": [
+      "page/index/index",
+      "page/explore/explore",
+      "page/destination/destination",
+      "page/trip/trip",
+      "page/user/user",
+      "page/waypoint/waypoint",
+      "page/trip_list/trip_list",
+      "page/poi_list/poi_list"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "旅行青蛙",
+    "navigationBarBackgroundColor": "#4abdcc",
+    "backgroundColor": "#fbf9fe"
+  },
+  "tabBar": {
+    "color": "#b0b0b0",
+    "selectedColor": "#4abdcc",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "page/index/index",
+      "iconPath": "img/index_normal.png",
+      "selectedIconPath": "img/index_pressed.png",
+      "text":"推荐"
+    }, {
+      "pagePath": "page/explore/explore",
+      "iconPath": "img/explore_normal.png",
+      "selectedIconPath": "img/explore_pressed.png",
+      "text": "发现"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

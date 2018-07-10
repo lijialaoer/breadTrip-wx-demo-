@@ -1,0 +1,86 @@
+
+
+page{
+  background-color: #fbf7ed;
+}
+.container{
+  padding:40rpx 30rpx 0;
+}
+.trip-top{
+  height: 72rpx;
+}
+.trip-user{
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20rpx;
+  float: left;
+}
+.detail{
+  font-size:25rpx;
+  color:#999;
+  line-height: 1;
+}
+.detail text{
+  margin-right: 20rpx;
+}
+.h1{
+  font-size: 40rpx;
+  color:#4abdcc;
+  line-height: 1;
+  margin-bottom: 9rpx;
+}
+.trip-wrap{
+  margin-top:36rpx;
+}
+.day-marker{
+  font-size:28rpx;
+  font-weight: bold;
+  line-height: 32rpx;
+  color:#a8915e;
+}
+.day-num::before{
+  content: "";
+  display: inline-block;
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  border:8rpx solid #e7ddc6;
+  background-color: #fff;
+  margin:0 8rpx;
+  vertical-align: text-bottom;
+}
+.wp-sep{
+  width: 8rpx;
+  height: 36rpx;
+  background-color: #e7ddc6;
+  margin-left: 20rpx;
+}
+.wp-status{
+  padding:10rpx 18rpx 22rpx;
+  background-color: #fff;
+  border-bottom:6rpx solid #e7e7e7;
+  overflow: hidden;
+}
+.article{
+  padding:10rpx 20rpx 0;
+  color:#5c5c5c;
+  background-color: #fff;
+  word-break: break-word;
+  font-weight: normal;
+  font-size:32rpx;
+  line-height:1.5;
+
+}
+.wp-time{
+ font-size: 24rpx;
+ line-height: 44rpx;
+ color:#999;
+}
+.icon-clock{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}

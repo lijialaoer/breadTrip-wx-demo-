@@ -1,0 +1,81 @@
+/* page/poi_list/poi_list.wxss */
+page{
+    background-color: #fbf7ed;
+}
+.m-trip-s{
+    margin:20rpx;
+    border-radius: 8rpx;
+    color:#fff;
+    overflow: hidden;
+    position:relative;
+}
+.m-trip-s .cover{
+    width: 100%;
+    height: 240rpx;
+    vertical-align: bottom;
+
+}
+.m-trip-s .mask{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right,rgba(0,0,0,0.3),rgba(0,0,0,0));
+}
+.m-trip-s .info{
+    position: absolute;
+    top:0;
+    left:0;
+    margin:20rpx 28rpx;
+}
+.m-trip-s .title{
+    margin-left: -4rpx;
+    font-size:36rpx;
+    line-height: 50rpx;
+    font-weight: 700;
+}
+.m-trip-s .detail{
+    margin-top:4rpx;
+    font-size:16rpx;
+    line-height: 16rpx;
+    font-weight: 16rpx;
+    position: relative;
+}
+.m-trip-s .detail::before{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top:0;
+    left:-3rpx;
+    width: 6rpx;
+    height: 100%;
+    background: red;
+}
+.m-trip-s .detail text{
+    margin:0 8rpx;
+}
+.m-trip-s .stat{
+    position: absolute;
+    left:28rpx;
+    bottom:24rpx;
+    width: calc(100% - 56rpx);
+    line-height: 32rpx;
+}
+.m-trip-s .stat text{
+    position: relative;
+    padding-left:16rpx;
+    margin-right: 30rpx;
+    font-size:20rpx;
+}
+.m-trip-s .stat text::before{
+    content: "";
+    position: absolute;
+    top:8rpx;
+    left:0;
+    display: inline-block;
+    width: 8rpx;
+    height: 8rpx;
+    border-radius: 100%;
+    background-color: red;
+}

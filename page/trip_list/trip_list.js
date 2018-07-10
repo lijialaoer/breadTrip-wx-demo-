@@ -80,7 +80,7 @@ Page({
        that.setData({
          tripList:newList,
          loading:false
-       })
+       });
      }
    })
    
@@ -154,7 +154,9 @@ Page({
     this.setData({
       poiIndex,
       tripList:[],
-      poiType:types
+      poiType:types,
+      hasMore:true,
+      loading:false
     });
     this.getTripList(this.data.typeId, this.data.id, this.data.poiType);
   }

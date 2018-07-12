@@ -4,5 +4,8 @@
 <scroll-view style='width:{{scrWidth}}px;height:{{scrHeight}}px'  class='container' scroll-y="{{true}}" lower-threshold='800' bindscrolltolower='loadMore' >
     <block wx:for='{{trip}}' wx:key="{{item.data[0].id}}"> 
       <template is="m-trip" data="{{trip:item.data[0],model:1}}"/>
-   </block>  
+   </block> 
+    <view wx:if="{{ hasMore }}" class="loading">
+        <image src='../../img/loading.gif' style='width:100px;height:20px;margin-left:calc(50% - 50px);' ></image>
+     </view> 
 </scroll-view>

@@ -37,6 +37,7 @@ Page({
           that.setData({
             maskers: [{ id: 0, latitude: location.lat, longitude: location.lng, label:{content: title}}],
           })
+         
         };
         if(title && location){
           that.setData({
@@ -96,8 +97,10 @@ Page({
   onShareAppMessage: function () {
   
   },
+
+// other event
   markerstap(e){
-    console.log(e)
+    
   },
   call(e){
     var tepNum = e.currentTarget.dataset.tep;
@@ -110,5 +113,7 @@ Page({
     wx.navigateTo({
       url: '../website/website?url='+url
     })
-  }
+  },
+  
+
 })

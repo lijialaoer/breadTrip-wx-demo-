@@ -151,7 +151,6 @@ Page({
     var value = this.data.commentText;
     if(value !==''){
      this.commentMsg();
-     this.data.commentText="";
     }else{
       wx.showToast({
         title: '评论不能为空',

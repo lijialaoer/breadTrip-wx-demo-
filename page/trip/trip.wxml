@@ -16,10 +16,11 @@
                     <view class='wp-sep'></view>
                     <block wx:for="{{day.waypoints}}" wx:for-item="wp" wx:for-index='i' wx:key="wp.id">
                         <view class='waypoint' data-waypoint="{{wp.id}}" bindtap='viewWaypoint' data-tripId="{{wp.trip_id}}">
-                            <view class='photo-ctn'>
-                                <image style="width: 100%; height: {{ wp.photo_info.h * (scrWidth - 30) / wp.photo_info.w }}px; background-color: #eeeeee;vertical-align: bottom;" src='{{wp.photo_webtrip}}'></image>
+                            <view class='photo-ctn' wx:if='{{wp.photo_webtrip}}'>
+                                <image style="width: 100%; height: {{ wp.photo_info.h * (scrWidth - 30) / wp.photo_info.w }}px; background-color: #eeeeee;vertical-align: bottom;" src='{{wp.photo_webtrip}}' ></image>
                             </view>
-                            <view class='article'>{{wp.text}}</view>
+                            <view class='article' style='box-shadow: 0px 0px 20px 5px rgba(7,17,27,.1);padding-top:30rpx' wx:if='{{!wp.photo_webtrip}}'>{{wp.text}}</view>
+                             <view class='article' wx:if='{{wp.photo_webtrip}}'>{{wp.text}}</view>
                             <view class='wp-status'>
                                 <view class='wp-time'>
                                     <image class='icon-clock' src='../../img/time.png'></image>

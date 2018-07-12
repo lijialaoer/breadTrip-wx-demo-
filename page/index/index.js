@@ -12,16 +12,17 @@ Page({
       scrHeight:App.systemInfo.screenHeight,
       start:0,
       loading:false,
+      hasMore:true,
       trip:[]
   },
   // 请求事件
   loadMore(e) {
     const self = this;
-    const loading = self.data.loading;
+    const loading = self.data.loading,hasMore = self.data.hasMore;
     const data = {
       next_start: self.data.start,
     };
-    if (loading) {
+    if (loading && !hasMore) {
       return;
     }
     self.setData({
@@ -42,10 +43,17 @@ Page({
           trip: newList,
         });
         const nextStart = res.data.data.next_start;
-        self.setData({
-          start: nextStart,
-          loading: false,
-        });
+        if(nextStart){
+          self.setData({
+            start: nextStart,
+            loading: false,
+          });
+        }else{
+          self.setData({
+            hasMore:false
+          })
+        }
+        
         wx.hideLoading();
       },
     });

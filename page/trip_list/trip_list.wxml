@@ -10,7 +10,7 @@
 </scroll-view>
 <scroll-view class='list' style='width:{{srcWidth}}px;height:{{srcHeight - 70}}px' scroll-y lower-threshold='900' bindscrolltolower='loadMore' >
     <block wx:for='{{tripList}}' wx:key='{{item.id}}'>
-      <view class='m-poi' >
+      <view class='m-poi' data-index='{{index}}' bindtap='viewPoiInfo'>
           <image src="{{item.cover_s}}"></image>
           <view class="hotTips">推荐</view>
           <view class="info">

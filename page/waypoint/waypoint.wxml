@@ -1,9 +1,8 @@
 <!--page/waypoint/waypoint.wxml-->
-
 <view class='container'>
     <view class='waypoint' data-waypoint="{{itemInfo.id}}" bindtap='viewWaypoint' data-tripId="{{itemInfo.trip_id}}">
         <view class='photo-ctn'>
-            <image style="width: 100%; height: {{itemInfo.photo_info.h * (scrWidth - 30) / itemInfo.photo_info.w }}px; background-color: #eeeeee;vertical-align: bottom;" src='{{itemInfo.photo_webtrip}}'></image>
+            <image style="width: 100%; height: {{itemInfo.photo_info.h * (scrWidth - 30) / itemInfo.photo_info.w }}px; background-color: #eeeeee;vertical-align: bottom;" src='{{itemInfo.photo_webtrip}}' bindtap="preViewImage" data-src='{{itemInfo.photo_webtrip}}'></image>
         </view>
         <view class='article'>{{itemInfo.text}}</view>
         <view class='wp-status'>
@@ -11,6 +10,10 @@
                 <image class='icon-clock' src='../../img/time.png'></image>
                 <text>{{itemInfo.local_time}}</text>
             </view>
+              <view class="spot" style='position:absolute;top:calc(50% - 32rpx);right:25rpx;font-size:24rpx;line-height:44rpx;' wx:if='{{itemInfo.poi}}' bindtap='viewBasie'>
+                    <text space='color:#999;'>{{(itemInfo.city || itemInfo.province) ? (itemInfo.city || itemInfo.province) : 'Introduction of scenic spots'}}</text>
+                  <image src='../../img/arrowright.png' style='width:30rpx;height:30rpx;vertical-align:middle;'></image>
+              </view>
         </view>
     </view>
     <view class="recommender">
@@ -24,7 +27,7 @@
     <view class="comment">
         <view class="title">{{itemInfo.comments}}人评价</view>
         <view class="comment_list">
-            <block wx:for="{{comments}}" wx:key="{{item.id}}">
+            <block wx:for="{{comments}}" wx:key="{{index}}">
                 <view class="list_item">
                     <image class="avactor" src="{{item.user.avatar_l}}"></image>
                     <view class="item_info">
@@ -36,4 +39,9 @@
             </block>
         </view>
     </view>
+    <view class='commentText'>
+        <input placeholder='我要写评论' type='text' adjust-position bindblur='setComment'/>
+        <button size='mini' type='primary' plain='false' bindtap='getComment' >发送</button>
+    </view>
 </view>
+

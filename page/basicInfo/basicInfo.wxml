@@ -1,0 +1,50 @@
+<!--page/basicInfo/basicInfo.wxml-->
+<view class='header' style='width:{{scrWidth}}'>
+     <view wx:if="{{!mapFlag}}">
+         <image src="{{poiInfo.cover_img}}" mode="aspectFill" style="width: {{scrWidth}}px"></image>
+        <view class="mask"></view>
+        <view class="title">
+            <view class="city_name">乌镇</view>
+            <view class="detail">反对方的身份的说法</view>
+        </view>
+    </view> 
+    <view wx:if="{{mapFlag}}">
+        <map id="map" style="width:{{scrWidth}}px;height:400rpx;vertical-align:bottom;position:relative" latitude='{{poiInfo.location.lat}}' longitude='{{poiInfo.location.lng}}'  markers='{{maskers}}' bindmarkertap='markerstap'></map>
+    </view> 
+</view>
+   
+  <view class='hottrip'>
+        <text class='hot-title'>景点介绍</text>
+  </view>
+   <view class='basicInfo'>
+      <view class='binfo' wx:if="{{poiInfo.description}}">
+          <view class="stitle">景点概述</view>
+          <view class="desc">{{poiInfo.description}}</view>
+      </view>
+      <view class='binfo' wx:if="{{poiInfo.address}}">
+          <view class="stitle">地址</view>
+          <view class="desc">{{poiInfo.address}}</view>
+      </view>
+      <view class='binfo' wx:if="{{poiInfo.arrival_type}}">
+          <view class="stitle">到达方式</view>
+          <view class="desc">{{poiInfo.arrival_type}}</view>
+      </view>
+      <view class='binfo' wx:if="{{poiInfo.opening_time}}">
+          <view class="stitle">开放时间</view>
+          <view class="desc">{{poiInfo.opening_time}}</view>
+      </view>
+       <view class='binfo' wx:if="{{poiInfo.fee}}">
+          <view class="stitle">门票费用</view>
+          <view class="desc">{{poiInfo.fee}}</view>
+      </view>
+      <view class='binfo' wx:if="{{poiInfo.tel}}" bindtap="call" data-tep='{{poiInfo.tel}}'>
+          <view class="stitle" >联系方式</view>
+          <view class="desc">{{poiInfo.tel}}</view>
+            <image src='../../img/arrowright.png' class="arrow" ></image>
+      </view>
+       <view class='binfo' wx:if="{{poiInfo.website}}" bindtap="website" data-website='{{poiInfo.website}}'>
+          <view class="stitle">景点官方网址</view>
+          <view class="desc">{{poiInfo.website}}</view>
+          <image src='../../img/arrowright.png' class="arrow"  ></image>
+      </view>
+  </view> 

@@ -110,5 +110,33 @@ Page({
     wx.navigateTo({
       url: '../poi_list/poi_list?name=' + this.data.headerInfo.name + '&id=' + this.data.headerInfo.id + '&type=' + this.data.headerInfo.type
     })
+  },
+  viewPoiInfo(e){
+    var i = e.currentTarget.dataset.index;
+    var datas = this.data.poiInfo[i];
+    var pois = datas.tips[0];
+    if(pois){
+      var poison=pois.poi;
+      if(poison){
+        poison.cover_img = datas.cover_s;
+        wx.setStorage({
+          key: 'poiInfo',
+          data: JSON.stringify(poison)
+        })
+        wx.navigateTo({
+          url: '../basicInfo/basicInfo'
+        })
+      }else{
+        wx.showToast({
+          title: '暂无数据',
+          icon:'none'
+        })
+      }
+    } else {
+      wx.showToast({
+        title: '暂无数据',
+        icon: 'none'
+      })
+    }
   }
 })

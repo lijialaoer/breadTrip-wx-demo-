@@ -1,10 +1,12 @@
 /* page/waypoint/waypoint.wxss */
 @import '../trip/trip.wxss';
+
 page{
   background-color: #fbf7ed;
 }
 .container{
   padding:15rpx;
+
 }
 .recommender .title,
 .comment .title{
@@ -45,3 +47,27 @@ page{
 .comment_time{
   color:#999;
 }
+.commentText{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.commentText button{
+  margin:0;
+}
+.commentText input{
+  flex:1;
+  margin:0 15rpx;
+  height: 29px;
+  padding:0 15rpx;
+  border:1rpx solid  #353535;
+  border-radius: 5px;
+  line-height: 2.3;
+  white-space: pre-line;
+   box-shadow: border-box;
+   float: fixed;
+   left:0;
+   bottom:0;
+}
+

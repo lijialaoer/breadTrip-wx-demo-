@@ -7,7 +7,9 @@
       "page/user/user",
       "page/waypoint/waypoint",
       "page/trip_list/trip_list",
-      "page/poi_list/poi_list"
+      "page/poi_list/poi_list",
+      "page/basicInfo/basicInfo",
+      "page/website/website"
   ],
   "window": {
     "navigationBarTextStyle": "white",

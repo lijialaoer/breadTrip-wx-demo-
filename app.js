@@ -4,12 +4,18 @@ App({
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   systemInfo:null,
+  userInfo:null,
   onLaunch: function () {
     var that = this;
     wx.getSystemInfo({
       success: function(res) {
         that.systemInfo = res;
       },
+    });
+    wx.getUserInfo({
+      success(res) {
+        that.userInfo = res.userInfo;
+      }
     })
   },
 

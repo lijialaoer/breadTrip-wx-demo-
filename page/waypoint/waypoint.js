@@ -13,7 +13,8 @@ Page({
     scrHeight: App.systemInfo.screenHeight,
     itemInfo:null,
       comments:[],
-	  recommenders:[]
+	  recommenders:[],
+    commentText:''
   },
   // 请求事件
   getWayPointInfo(waypointId,tripId){
@@ -21,12 +22,21 @@ Page({
     api.getWaypointInfoByID({
       query: { waypointId: waypointId, tripId: tripId},
       success(res){
+        var keyDate = res.data.poi;
         that.setData({
           itemInfo:res.data
         });
         wx.setNavigationBarTitle({
           title: res.data.trip_name
-        })
+        });
+
+        if (keyDate){
+          keyDate.cover_img = res.data.photo_w640;
+          wx.setStorage({
+            key: 'poiInfo',
+            data: JSON.stringify(keyDate),
+          })
+        }
 
         if (that.data.itemInfo.comments > 0 || that.data.itemInfo.recommendations > 0){
           that.getWaypointReplies(tripId,waypointId);
@@ -117,6 +127,48 @@ Page({
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '../user/user?id=' + id
+    })
+  },
+  preViewImage(e){
+    var url = e.currentTarget.dataset.src;
+    wx.previewImage({
+      urls: [url]
+    })
+  },
+  viewBasie(){
+    wx.navigateTo({
+      url: '../basicInfo/basicInfo',
+    })
+  },
+  //评论事件
+  setComment(e){
+    var value = e.detail.value;
+      this.setData({
+        commentText:value
+      })
+  },
+  getComment(e){
+    var value = this.data.commentText;
+    if(value !==''){
+     this.commentMsg();
+     this.data.commentText="";
+    }else{
+      wx.showToast({
+        title: '评论不能为空',
+        icon:'none'
+      })
+    }
+  },
+  commentMsg(){
+    var userItem = {}, userMsg = App.userInfo,comments = this.data.comments;
+    var date = (new Date()).valueOf();
+    userItem.comment = this.data.commentText;
+    userItem.user = { name:userMsg.nickName, avatar_l:userMsg.avatarUrl};
+    userItem.date_added = formatTime.formatTime(date/1000, 2);
+    comments.push(userItem);
+   
+    this.setData({
+      comments
     })
   }
 })

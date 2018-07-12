@@ -2,7 +2,7 @@
 <import src="../../component/rating/rating.wxml" />
 
 <view class='header' style='width:{{scrWidth}}'>
-    <image src="{{headerInfo.hottest_places[0].photo}}" mode="aspectFill" style="width: {{scrWidth}}"></image>
+    <image src="{{headerInfo.hottest_places[0].photo}}" mode="aspectFill" style="width: {{scrWidth}}px"></image>
     <view class="mask"></view>
     <view class="title">
         <view class="city_name">{{headerInfo.name}}</view>
@@ -18,7 +18,7 @@
         <text class='hot-title'>热门地点</text>
     </view>
     <view class='list'>
-        <view wx:if="{{poiInfo.length > 0}}" wx:for="{{poiInfo}}"  class="poi" wx:key="{{item.id}}">
+        <view wx:if="{{poiInfo.length > 0}}" wx:for="{{poiInfo}}"  class="poi" wx:key="{{item.id}}" bindtap="viewPoiInfo" data-index="{{index}}">
             <image src="{{item.cover_s}}" mode="aspectFill"></image>
             <view class="mask"></view>
             <view class="title">
